@@ -23,7 +23,6 @@ public:
 	int getyear() const { return year; };
 
 private: 
-	string dateString;
 	int month = 1, day = 1, year = 1900;
 };
 

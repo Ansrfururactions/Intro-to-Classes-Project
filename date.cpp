@@ -1,7 +1,9 @@
 #include <iostream>
 #include "Date.h"
 
-date::date(int m, int d, int y) : month(m), day(d), year(y) {}
+date::date(int m, int d, int y) : month(m), day(d), year(y) {
+
+}
 
 
     bool date::isLeapYear(int year)
@@ -40,7 +42,7 @@ date::date(int m, int d, int y) : month(m), day(d), year(y) {}
             {
                 return 28;
             }
-        }
+        } 
     }
 
     int date::lastDay(int month, int year)
@@ -71,7 +73,7 @@ date::date(int m, int d, int y) : month(m), day(d), year(y) {}
     {
         if (m <= 0 && m > 12)
         {
-            cout << "invalid month, setting default month";
+            month = 1;
         }
         else
         {
@@ -80,7 +82,7 @@ date::date(int m, int d, int y) : month(m), day(d), year(y) {}
 
         if (y <= 0)
         {
-            cout << "invalid year, setting default year";
+            year = 1900;
         }
         else
         {
@@ -89,12 +91,13 @@ date::date(int m, int d, int y) : month(m), day(d), year(y) {}
 
         if (d <= 0 || d > lastDay(month, year))
         {
-            cout << "invalid day, setting default day";
+            day = 1;
         }
         else
         {
             day = d;
         }
+
     }
 
     void date::displaydate()
