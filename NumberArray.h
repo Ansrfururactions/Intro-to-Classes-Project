@@ -1,9 +1,8 @@
 
 
-#ifdef NumberArray.h
-#define NumberArray.h
+#ifdef NumberArray_H
+#define NumberArray_H
 
-#include <iostream>
 #include <random>
 
 using namespace std;
@@ -30,4 +29,5 @@ private:
 		static const int MAX_SIZE = 10;
 		static const double DefaultVal = 0.0;
 };
+
 #endif
