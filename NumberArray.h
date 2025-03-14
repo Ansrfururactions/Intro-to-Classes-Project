@@ -10,7 +10,7 @@ using namespace std;
 class NumberArray
 {
 public:
-	NumberArray(int size = MAX_SIZE);
+	NumberArray(int* size = MAX_SIZE);
 
 	void setArray(int index, double value);
 
@@ -21,7 +21,6 @@ public:
 	int HighestValue();
 
 	int calcAverage();
-
 
 	~NumberArray();
 
