@@ -5,17 +5,20 @@ using namespace std;
 
 NumberArray::NumberArray(int size)
 {
-
+	random_device generator;
+    uniform_int_distribution<double> ValGen(0.0, 20.0);
 }
 
 void NumberArray::setArray(int index, double value)
 {
+	double numberArray{index};
+
 
 }
 
 int NumberArray::getNumber(int index)
 {
-	return 0;
+	cout << "please enter the number you wish to have access to:" << endl;
 }
 
 int NumberArray::LowestValue()
