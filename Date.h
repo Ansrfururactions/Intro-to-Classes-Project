@@ -5,8 +5,12 @@
 using namespace std;
 
 class date {
+private:
+	int month=1, day=1, year=1900;
+
 public:
-	date(int m=1, int d=1, int y=1);
+	date(int m = 1, int d = 1, int y = 1900);
+		 
 	
 	
 	bool isLeapYear();
@@ -16,14 +20,13 @@ public:
 	int lastDay(int month, int year);
 
 	void setdate (int m, int d, int y);
-	void displaydate();
+	void displaydate() const;
+	void displayWordDate() const;
 	
 	int getMonth() const { return month; };
 	int getDay() const { return day; };
 	int getyear() const { return year; };
 
-private: 
-	int month = 1, day = 1, year = 1900;
 };
 
 #endif
