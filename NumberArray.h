@@ -1,11 +1,12 @@
 
+#include <iostream>
+using namespace std;
 
-#ifdef NumberArray_H
+#ifndef NumberArray_H
 #define NumberArray_H
 
 #include <random>
 
-using namespace std;
 class NumberArray
 {
 public:
@@ -14,7 +15,7 @@ public:
 	void setArray(int index, double value);
 
 	int getNumber(int index);
-	
+
 	int LowestValue();
 
 	int HighestValue();
@@ -24,10 +25,10 @@ public:
 
 	~NumberArray();
 
-	
+
 private:
-		static const int MAX_SIZE = 10;
-		static const double DefaultVal = 0.0;
+	static const int MAX_SIZE = 10;
+	static const double DefaultVal;
 };
 
 #endif

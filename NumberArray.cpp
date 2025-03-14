@@ -5,14 +5,14 @@ using namespace std;
 
 NumberArray::NumberArray(int size)
 {
+	double NumberArray[size];
+	double* ArrayStorage = ;
 	random_device generator;
     uniform_int_distribution<double> ValGen(0.0, 20.0);
 }
 
 void NumberArray::setArray(int index, double value)
 {
-	double numberArray{index};
-
 
 }
 
