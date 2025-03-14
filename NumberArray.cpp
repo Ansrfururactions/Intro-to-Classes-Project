@@ -3,17 +3,19 @@
 #include <random>
 using namespace std;
 
-NumberArray::NumberArray(int size = MAX_SIZE)
+NumberArray::NumberArray(int size)
 {
-	double NumberArray[size];
+	double NumberArray[MAX_SIZE];
 	double* ArrayStorage = NumberArray;
 	
 	for(int i=0; i<size; i++)
 	{
 		NumberArray[i] = 0.0;
+		cout << NumberArray;
 	}
-	random_device generator;
-    uniform_int_distribution<double> ValGen(0.0, 20.0);
+	cout << endl;
+//	random_device generator;
+  //  uniform_int_distribution<double> ValGen(0.0, 20.0);
 }
 
 void NumberArray::setArray(int index, double value)
