@@ -3,7 +3,7 @@
 #include <random>
 using namespace std;
 
-NumberArray::NumberArray(int size)
+NumberArray::NumberArray(int size) : size(MAX_SIZE)
 {
 	double NumberArray[size];
 	double* ArrayStorage = ;
