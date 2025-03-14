@@ -1,11 +1,16 @@
 #include "NumberArray.h"
+#include <iostream>
+#include <random>
+using namespace std;
 
 NumberArray::NumberArray(int size)
 {
+
 }
 
 void NumberArray::setArray(int index, double value)
 {
+
 }
 
 int NumberArray::getNumber(int index)
@@ -30,4 +35,6 @@ int NumberArray::calcAverage()
 
 NumberArray::~NumberArray()
 {
+	cout << "destructor is running" << endl;
+
 }

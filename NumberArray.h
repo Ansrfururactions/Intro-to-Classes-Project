@@ -20,6 +20,6 @@ public:
 
 	
 private:
-		static int MAX_SIZE;
+		static const int MAX_SIZE = 10;
 };
 
