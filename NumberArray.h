@@ -27,7 +27,8 @@ public:
 
 private:
 	static const int MAX_SIZE = 10;
-	static const double DefaultVal;
+	static const double* DefaultVal;
+	double* NumberArr;
 };
 
 #endif

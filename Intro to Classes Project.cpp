@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-NumberArrayNumberArray(2);
+NumberArray NumberArray;
 }
 
 
