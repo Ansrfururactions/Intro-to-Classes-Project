@@ -14,20 +14,22 @@ public:
 
 	void setArray(int index, double value);
 
-	int getNumber(int index);
+	int getNumber(int index) const;
 
-	int LowestValue();
+	double LowestValue();
 
-	int HighestValue();
+	double HighestValue();
 
-	int calcAverage();
+	double calcAverage();
+
+	void PrintArray();
 
 	~NumberArray();
 
 
 private:
 	static const int MAX_SIZE = 10;
-	static const double* DefaultVal;
+	static const int DefaultVal = 0;
 	double* NumberArr;
 };
 
