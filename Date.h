@@ -20,6 +20,7 @@ public:
 	int lastDay(int month, int year);
 
 	void setdate (int m, int d, int y);
+	
 	void displaydate() const;
 	void displayWordDate() const;
 	
