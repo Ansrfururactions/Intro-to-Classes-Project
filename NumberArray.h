@@ -10,7 +10,7 @@ using namespace std;
 class NumberArray
 {
 public:
-	NumberArray(int size = MAX_SIZE);
+	NumberArray(int size);
 
 	void setArray(int index, double value);
 

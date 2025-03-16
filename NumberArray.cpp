@@ -4,13 +4,13 @@
 #include <random>
 using namespace std;
 
-NumberArray::NumberArray(int size)
-{
+NumberArray::NumberArray(int size) : MAX_SIZE(size)
+	{ 
 	NumberArray :: NumberArr = new double[size];
 
 	for(int i=0; i<size; i++)
 	{
-		NumberArr[i] = 0.0;
+		NumberArr[i] = 0.0; 
 		cout << setprecision(2) << NumberArr[i] << " ";
 	}
 
@@ -19,25 +19,22 @@ NumberArray::NumberArray(int size)
 
 void NumberArray::setArray(int index, double value)
 {	
-	getNumber(index);
-	random_device generator;
-	uniform_real_distribution<double> ValGen(0.0, 20.0);
-
-	if (index > MAX_SIZE)
+	
+	
+	if (index > *NumberArr)
 	{
-		cout << "Value is outside of array bounds, Storage failed" << endl;
+		
+		cout << "Value is outside of array bounds, Storage failed, index was " << index << ", value recieved as check " << *NumberArr<< endl;
     }
 	else
 	{
-		NumberArr[index] = ValGen(generator);
+		NumberArr[index] = value;
+		cout << NumberArr[index] << " ";
 	}
 }
 
 int NumberArray::getNumber(int index) const
 {
-	cout << "please enter the number you wish to have access to:" << endl;
-	cin >> index;
-
 	if (index > MAX_SIZE)
 	{
 		cout << "Value is outside of array bounds, returning default" << endl;
@@ -84,11 +81,11 @@ double NumberArray::calcAverage()
 	double Average = 0.0;
 	double sum = 0.0;
 
-	for (int c = 0; c < MAX_SIZE; c++)
+	for (int c = 0; c < sizeof (NumberArr); c++)
 	{
 		sum += NumberArr[c];		
 	}
-	Average = sum / MAX_SIZE;
+	Average = sum / sizeof(NumberArr);
 
 	return Average;
 }
