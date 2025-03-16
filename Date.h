@@ -6,7 +6,7 @@ using namespace std;
 
 class date {
 private:
-	int month=1, day=1, year=1900;
+	int month, day, year;
 
 public:
 	date(int m = 1, int d = 1, int y = 1900);
