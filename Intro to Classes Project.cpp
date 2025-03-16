@@ -9,27 +9,27 @@ uniform_real_distribution<double> ValGen(0.0, 20.0);
 int main()
 {
 	
-	int perameter = 15;
+	int Parameter = 15;
 NumberArray DefaultArray;
-NumberArray PeramArray(perameter);
+NumberArray ParamArray(Parameter);
 
 int index = 0;
 
 cout << endl << "mutator test: " << endl;
-for (index; index < perameter; index++)
+for (index; index < Parameter; index++)
 {
 	double value = ValGen(generator);
 
-	PeramArray.setArray(index, value);
+	ParamArray.setArray(index, value);
 }
 cout << endl<< endl;
 
 cout << "Accessor with valid index(12):" << endl;
-cout << PeramArray.getNumber(12) << endl << endl;
+cout << ParamArray.getNumber(12) << endl << endl;
 cout << "Accessor with invalid index(18):" << endl;
-cout << PeramArray.getNumber(18) << endl << endl;
+cout << ParamArray.getNumber(18) << endl << endl;
 
-   PeramArray.PrintArray();
+   ParamArray.PrintArray();
 }
 
 
