@@ -4,7 +4,7 @@
 #include <random>
 using namespace std;
 
-NumberArray::NumberArray(int size) : MAX_SIZE(size)
+NumberArray::NumberArray(int size) : size(size)
 	{ 
 	NumberArray :: NumberArr = new double[size];
 
@@ -20,11 +20,10 @@ NumberArray::NumberArray(int size) : MAX_SIZE(size)
 void NumberArray::setArray(int index, double value)
 {	
 	
-	
-	if (index > *NumberArr)
+	if (index > size)
 	{
 		
-		cout << "Value is outside of array bounds, Storage failed, index was " << index << ", value recieved as check " << *NumberArr<< endl;
+		cout << "Value is outside of array bounds, Storage failed" << endl;
     }
 	else
 	{
@@ -33,17 +32,17 @@ void NumberArray::setArray(int index, double value)
 	}
 }
 
-int NumberArray::getNumber(int index) const
+double NumberArray::getNumber(int index) const
 {
-	if (index > MAX_SIZE)
+	if (index > size)
 	{
-		cout << "Value is outside of array bounds, returning default" << endl;
+		cout << "Value is outside of array bounds, returning default" << ": ";
 		return DefaultVal;
 	}
 	else
 	{
-		cout << "returning space" << index << endl;
-		return index;
+		cout << "returning space " << index << ": ";
+		return NumberArr[index];
 	}
 }
 
@@ -51,7 +50,7 @@ double NumberArray::LowestValue()
 {
 	double lowestVal = NumberArr[MAX_SIZE];
 
-	for (int c = 0; c < MAX_SIZE; c++)
+	for (int c = 0; c < size; c++)
 	{
 		if (NumberArr[c] < lowestVal)
 		{
@@ -64,9 +63,9 @@ double NumberArray::LowestValue()
 
 double NumberArray::HighestValue()
 {
-	double highestVal = NumberArr[MAX_SIZE];
+	double highestVal = NumberArr[size];
 
-	for (int c = 0; c < MAX_SIZE; c++)
+	for (int c = 0; c < size; c++)
 	{
 		if (NumberArr[c] > highestVal)
 		{
@@ -81,23 +80,24 @@ double NumberArray::calcAverage()
 	double Average = 0.0;
 	double sum = 0.0;
 
-	for (int c = 0; c < sizeof (NumberArr); c++)
+	for (int c = 0; c < size; c++)
 	{
 		sum += NumberArr[c];		
 	}
-	Average = sum / sizeof(NumberArr);
+	Average = sum / size;
 
 	return Average;
 }
 
 void NumberArray::PrintArray()
 {
-	for (int p = 0; p < MAX_SIZE; p++)
+	cout << "running PrintArray Function" << endl << "------" << endl;
+	for (int p = 0; p < size; p++)
 	{	
 	cout << NumberArr[p] << " ";
     }
 
-	cout << endl << endl;
+	cout << endl<< "------" << endl;
 
 	cout << "the lowest value in the array is " << LowestValue() << "." << endl << "-------" << endl;
 	cout << "the highest value in the array is " << HighestValue() << "." << endl << "-------" << endl;

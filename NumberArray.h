@@ -10,11 +10,11 @@ using namespace std;
 class NumberArray
 {
 public:
-	NumberArray(int size);
+	NumberArray(int size = MAX_SIZE);
 
 	void setArray(int index, double value);
 
-	int getNumber(int index) const;
+	double getNumber(int index) const;
 
 	double LowestValue();
 
@@ -29,8 +29,9 @@ public:
 
 private:
 	static const int MAX_SIZE = 10;
-	static const int DefaultVal = 0;
+	static const int DefaultVal = 0.0;
 	double* NumberArr;
+	int size;
 };
 
 #endif
