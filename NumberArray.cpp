@@ -48,7 +48,7 @@ double NumberArray::getNumber(int index) const
 
 double NumberArray::LowestValue()
 {
-	double lowestVal = NumberArr[MAX_SIZE];
+	double lowestVal = NumberArr[size];
 
 	for (int c = 0; c < size; c++)
 	{

@@ -1,5 +1,6 @@
 #include "NumberArray.h"
 #include <iostream>
+#include <iomanip>
 #include <random>
 using namespace std;
 random_device generator;
