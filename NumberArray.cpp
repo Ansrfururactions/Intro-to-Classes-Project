@@ -20,7 +20,7 @@ NumberArray::NumberArray(int size) : size(size)
 void NumberArray::setArray(int index, double value)
 {	
 	
-	if (index > size)
+	if (index > size-1|| index < 0)
 	{
 		
 		cout << "Value is outside of array bounds, Storage failed" << endl;
@@ -34,27 +34,27 @@ void NumberArray::setArray(int index, double value)
 
 double NumberArray::getNumber(int index) const
 {
-	if (index > size)
+	if (index > size-1 || index < 0)
 	{
 		cout << "Value is outside of array bounds, returning default" << ": ";
 		return DefaultVal;
 	}
 	else
 	{
-		cout << "returning space " << index << ": ";
 		return NumberArr[index];
 	}
 }
 
 double NumberArray::LowestValue()
 {
-	double lowestVal = NumberArr[size];
+	double lowestVal = NumberArr[0];
 
-	for (int c = 0; c < size; c++)
+	for (int c = 0; c < size-1; c++)
 	{
 		if (NumberArr[c] < lowestVal)
 		{
 			lowestVal = NumberArr[c];
+			
 		}
 	}
 
@@ -63,9 +63,9 @@ double NumberArray::LowestValue()
 
 double NumberArray::HighestValue()
 {
-	double highestVal = NumberArr[size];
+	double highestVal = NumberArr[size-1];
 
-	for (int c = 0; c < size; c++)
+	for (int c = 0; c < size-1; c++)
 	{
 		if (NumberArr[c] > highestVal)
 		{
@@ -80,7 +80,7 @@ double NumberArray::calcAverage()
 	double Average = 0.0;
 	double sum = 0.0;
 
-	for (int c = 0; c < size; c++)
+	for (int c = 0; c < size-1; c++)
 	{
 		sum += NumberArr[c];		
 	}
@@ -96,13 +96,7 @@ void NumberArray::PrintArray()
 	{	
 	cout << NumberArr[p] << " ";
     }
-
-	cout << endl<< "------" << endl;
-
-	cout << "the lowest value in the array is " << LowestValue() << "." << endl << "-------" << endl;
-	cout << "the highest value in the array is " << HighestValue() << "." << endl << "-------" << endl;
-	cout << "the average of all values in the array is " << calcAverage() << "." << endl << "-------" << endl;
-
+	cout << endl;
 }
 
 NumberArray::~NumberArray()
