@@ -10,7 +10,7 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
 
     bool date::isLeapYear(int year)
     {
-        if (year % 4 == 0)
+        if (year % 4 == 0|| year % 100 == 0 && year % 400 == 0)
             return true;
         else
             return false;
@@ -18,7 +18,7 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
 
     bool date::isLeapYear()
     {
-        if (year % 4 == 0)
+        if (year % 4 == 0 || year % 400 == 0)
             return true;
         else
             return false;
@@ -100,7 +100,6 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
         }
         else
         {
-            cout << "date is valid, printing date now." << endl;
             month = m;
             day = d;
             year = y;

@@ -9,24 +9,24 @@ private:
 	int month, day, year;
 
 public:
-	date(int m = 1, int d = 1, int y = 1900);
+	date(int m = 1, int d = 1, int y = 1900);//constructor
 		 
 	
 	
-	bool isLeapYear();
-	bool isLeapYear(int year);
+	bool isLeapYear();//uses the state of year in the constructor and determines if it is a leap year
+	bool isLeapYear(int year);// takes year as a parameter and determines if it is a leap year
 	
-	int lastDay();
-	int lastDay(int month, int year);
+	int lastDay();// uses the state of month & year in the constructor and runs if statements to determine the last day of the month, using the isLeapYear Bool if month = 2;
+	int lastDay(int month, int year);// takes month & year as a parameter and runs if statements to determine the last day of the month, using the isLeapYear Bool if month = 2;
 
-	void setdate (int m, int d, int y);
+	void setdate (int m, int d, int y);//checks values provided by the client for validation
 	
-	void displaydate() const;
-	void displayWordDate() const;
+	void displaydate() const;//displays the values returned.
+	void displayWordDate() const;//prints out the date with the month being changed to its name
 	
-	int getMonth() const { return month; };
-	int getDay() const { return day; };
-	int getyear() const { return year; };
+	int getMonth() const { return month; };//accessor for month
+	int getDay() const { return day; };//accessor for day
+	int getyear() const { return year; };//accessor for year
 
 };
 
