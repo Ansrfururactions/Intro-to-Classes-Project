@@ -1,6 +1,7 @@
 #ifndef date_H
 #define date_H
 
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -11,8 +12,44 @@ private:
 public:
 	date(int m = 1, int d = 1, int y = 1900);//constructor
 		 
+	date& operator++() {
+		++day;
+		return *this;
+	}
 	
+	date& operator--() {
+		--day;
+		return *this;
+	}
+
+	date operator++(int) {
+		date current = *this;
+		day++;
+		return *this;
+
+	}
 	
+	date operator--(int) {
+		date current = *this;
+		day++;
+		return *this;
+	}
+
+	date operator-(const date& rhs) const{
+
+		return date(rhs.day - day);
+	}
+	
+	friend ostream& operator<<(ostream& out, const date& d) {
+		out << displayWordDate << endl;
+	}
+
+	friend istream& operator>>(istream& in, const date& d) {
+		cout << "please enter month: ";
+		in >> d.month;
+
+	}
+
 	bool isLeapYear();//uses the state of year in the constructor and determines if it is a leap year
 	bool isLeapYear(int year);// takes year as a parameter and determines if it is a leap year
 	
