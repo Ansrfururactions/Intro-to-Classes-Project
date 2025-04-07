@@ -20,7 +20,7 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
 
     bool date::isLeapYear()
     {
-        if (year % 4 == 0 || year % 400 == 0)
+        if (year % 4 == 0 || year % 100 == 0 && year % 400 == 0)
             return true;
         else
             return false;
@@ -90,13 +90,12 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
             day = 1;
             year = 1900;
         }
-        else if (d <= 0 || d > lastDay(month, year)|| d > lastDay())
+        else if (d <= 0 || d >= lastDay(month, year)|| d >= lastDay())
         {
             cout << "invalid day, setting date to default" << endl;
             month = 1;
             day = 1;
             year = 1900;
-            displayWordDate2();
         }
         else
         {
@@ -223,6 +222,61 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
         cout << day << " " << wordMonth << ", " << year << endl;
     }
 
+    string date::getWordMonth()
+    {
+        string wordMonth;
+
+        if (month == 1)
+        {
+            wordMonth = "January";
+        }
+        else if (month == 2)
+        {
+            wordMonth = "February";
+        }
+        else if (month == 3)
+        {
+            wordMonth = "March";
+        }
+        else if (month == 4)
+        {
+            wordMonth = "April";
+        }
+        else if (month == 5)
+        {
+            wordMonth = "May";
+        }
+        else if (month == 6)
+        {
+            wordMonth = "June";
+        }
+        else if (month == 7)
+        {
+            wordMonth = "July";
+        }
+        else if (month == 8)
+        {
+            wordMonth = "August";
+        }
+        else if (month == 9)
+        {
+            wordMonth = "September";
+        }
+        else if (month == 10)
+        {
+            wordMonth = "October";
+        }
+        else if (month == 11)
+        {
+            wordMonth = "November";
+        }
+        else
+        {
+            string wordMonth = "December";
+        }
+        return wordMonth;
+    }
+
     date& date::operator++() {      
         ++day;
         if (day > lastDay())
@@ -294,7 +348,7 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
 
     ostream& operator<<(ostream& out, const date& d)
     {
-        out << date::displayWordDate1 << endl;
+        out << d.getMonth() << d.day << d.year << endl;
         return out;
     }
 

@@ -38,6 +38,8 @@ public:
 	void displaydate() const;//displays the values returned.
 	void displayWordDate1() const;//prints out the date with the month being changed to its name
 	void displayWordDate2() const;
+
+	string getWordMonth();
 	int getMonth() const { return month; };//accessor for month
 	int getDay() const { return day; };//accessor for day
 	int getyear() const { return year; };//accessor for year
