@@ -6,58 +6,55 @@ int main()
 {
 
     int dateMonth = 1, dateDay = 1, dateYear = 1900, YN=0;
-
-
-   cout << "enter 1 if you wish to run the test program. Otherwise, enter a different number." << endl;
-   cin >> YN;
-   if (YN == 1)
-   {
+    date dateInstdefault;
+    date dateInstParam(12, 25, 2009);
+    date dateInstParam2(4, 10, 2014);
+    date dateInstParam3(4, 18, 2014);
+    date diff1 = dateInstParam3 - dateInstParam2;
+    date dateInstParam4(2, 2, 2006);
+    date dateInstParam5(11, 10, 2003);
+    date diff2 = dateInstParam4 - dateInstParam5;
+    date dateInstParam6(2, 29, 2008);
        //***************************************************************//
        //                       test program                            //
        //***************************************************************//
-       cout << "testing default constructor(1/1/1900): ";
-       date dateInstdefault;
+       cout << "testing default constructor: ";
+       dateInstdefault.displaydate();
        cout << endl;
 
-       cout << "testing constructor with valid date (12/25/2009): ";
-       date dateInstValDate(12, 25, 2009);
+       cout << "testing constructor with parameters (12/25/2009): ";
+       dateInstParam.displayWordDate1();
        cout << endl;
 
-       cout << "testing constructor with invalid month((14)/25/2009): ";
-       date dateInstInvalMonth(14, 25, 2009);
+       cout << "testing setdate: ";
+       dateInstdefault.setdate(1, 1, 1900);
        cout << endl;
 
-       cout << "testing constructor with invalid day(12/(39)/2009): ";
-       date dateInstInvalDay(12, 39, 2009);
+       cout << "testing setdate with parameters (13/45/2018) : ";
+       dateInstParam.setdate(13, 45, 2018);
        cout << endl;
 
-       cout << "testing constructor with invalid year(12/25/(-2009)): ";
-       date dateInstInvalYear(12, 25, -2009);
+       cout << "testing setdate with parameters (4/31/2000) : ";
+       dateInstParam.setdate(4, 31, 2000);
+       cout << endl;
+       
+       cout << "testing setdate with parameters (2/29/2009) : ";
+       dateInstParam.setdate(2, 29, 2009);
        cout << endl;
 
-       cout << "testing setdate with invalid month ((14), 25, 2009): ";
-       dateInstInvalMonth.setdate(14, 25, 2009);
+       cout << "testing overloaded - operator: ";
+       cout << diff1 << endl;
+       cout << diff2 << endl;
        cout << endl;
 
-       cout << "testing setdate with invalid day(12, (39), 2009): ";
-       dateInstInvalDay.setdate(12, 39, 2009);
-       cout << endl;
+       cout << "testing overloaded --prefix operator: ";
+       cout << "before operator: " << dateInstParam6 << endl;
+       --dateInstParam6;
+       cout << "after operator: " << dateInstParam6 << endl;
 
-       cout << "testing setdate with invalid year(12, 25, (-2009)): ";
-       dateInstInvalYear.setdate(12, 25, -2009);
-       cout << endl;
-
-       cout << "testing leap year Boolean when given invalid date(2/29/2009): ";
-       dateInstInvalDay.setdate(2, 29, 2009);
-       cout << endl;
-
-       cout << "testing leap year Boolean when given valid date(2/29/2008): ";
-       dateInstValDate.setdate(2, 29, 2008);
-       cout << endl;
        //***************************************************************//
        //                    end of test program                        //
        //***************************************************************//
-   }
         cout << "what is the month?" << endl;
         cin >> dateMonth;
 
@@ -68,6 +65,6 @@ int main()
         cin >> dateYear;
 
         date DateEntered(dateMonth, dateDay, dateYear);
-        DateEntered.displayWordDate();
+        DateEntered.displayWordDate1();
 }
 

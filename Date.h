@@ -12,43 +12,20 @@ private:
 public:
 	date(int m = 1, int d = 1, int y = 1900);//constructor
 		 
-	date& operator++() {
-		++day;
-		return *this;
-	}
+
+	date& operator++();
 	
-	date& operator--() {
-		--day;
-		return *this;
-	}
+	date& operator--();
 
-	date operator++(int) {
-		date current = *this;
-		day++;
-		return *this;
+	date operator++(int);
 
-	}
+	date operator--(int);
+
+	date operator-(const date&) const;
 	
-	date operator--(int) {
-		date current = *this;
-		day++;
-		return *this;
-	}
+	friend ostream& operator<<(ostream&, const date&);
 
-	date operator-(const date& rhs) const{
-
-		return date(rhs.day - day);
-	}
-	
-	friend ostream& operator<<(ostream& out, const date& d) {
-		out << displayWordDate << endl;
-	}
-
-	friend istream& operator>>(istream& in, const date& d) {
-		cout << "please enter month: ";
-		in >> d.month;
-
-	}
+	friend istream& operator>>(istream&, date&);
 
 	bool isLeapYear();//uses the state of year in the constructor and determines if it is a leap year
 	bool isLeapYear(int year);// takes year as a parameter and determines if it is a leap year
@@ -59,8 +36,8 @@ public:
 	void setdate (int m, int d, int y);//checks values provided by the client for validation
 	
 	void displaydate() const;//displays the values returned.
-	void displayWordDate() const;//prints out the date with the month being changed to its name
-	
+	void displayWordDate1() const;//prints out the date with the month being changed to its name
+	void displayWordDate2() const;
 	int getMonth() const { return month; };//accessor for month
 	int getDay() const { return day; };//accessor for day
 	int getyear() const { return year; };//accessor for year
