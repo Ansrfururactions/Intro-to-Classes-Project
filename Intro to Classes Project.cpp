@@ -73,7 +73,7 @@ int main()
     cout << "before operator: ";
     dateInstParam6.displaydate();
     cout << endl;
-    dateInstParam6++;
+    dateInstParam6--;
     cout << "after operator: ";
     dateInstParam6.displaydate();
     cout << endl;

@@ -8,22 +8,38 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
 
     
 
-    bool date::isLeapYear(int year)
-    {
-        if (year % 4 == 0|| year % 100 == 0 && year % 400 == 0)
-            return true;
-        else
-            return false;
+bool date::isLeapYear(int year)
+{
+    if (year % 400 == 0) {
+        return true;
     }
+    else if (year % 100 == 0) {
+        return false;
+    }
+    else if (year % 4 == 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
     
 
     bool date::isLeapYear()
     {
-        if (year % 4 == 0 || year % 100 == 0 && year % 400 == 0)
+        if (year % 400 == 0) {
             return true;
-        else
+        }
+        else if (year % 100 == 0) {
             return false;
+        }
+        else if (year % 4 == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     int date::lastDay()
@@ -90,7 +106,7 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
             day = 1;
             year = 1900;
         }
-        else if (d <= 0 || d >= lastDay(month, year)|| d >= lastDay())
+        else if (d <= 0 || d >= lastDay(m,y) || d >= lastDay())
         {
             cout << "invalid day, setting date to default" << endl;
             month = 1;
@@ -331,7 +347,7 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
         if (day < 1)
         {
             month--;
-            day = lastDay(month, year);
+            day = lastDay();
             if (month < 1)
             {
                 month = 12;
@@ -341,10 +357,22 @@ date::date(int m, int d, int y) : month(m), day(d), year(y)
         return dy;
     }
 
-    date date::operator-(const date& rhs) const
-    {
-        return rhs.day - day;
+    date operator-(const date& lhs, const date& rhs)
+    {   
+        date differenceobj = lhs;
+        cout <<"  differenceobj.month: " << differenceobj.month << ", differenceobj.day: " << differenceobj.day << ", differenceobj.year: " << differenceobj.year << endl;
+        cout << " rhs.month: " << rhs.month << ", rhs.day: " << rhs.day << ", rhs.year: " << rhs.year << endl;
+        int difference = 1;
+
+      while (differenceobj.month != rhs.month || differenceobj.day != rhs.day || differenceobj.year != rhs.year)
+      {
+           --differenceobj; 
+           difference + 1;
+       }
+
+                 return differenceobj;
     }
+
 
     ostream& operator<<(ostream& out, const date& d)
     {

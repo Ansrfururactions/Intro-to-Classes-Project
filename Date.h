@@ -21,7 +21,7 @@ public:
 
 	date operator--(int);
 
-	date operator-(const date&) const;
+	friend date operator-(const date&, const date&);
 	
 	friend ostream& operator<<(ostream&, const date&);
 
