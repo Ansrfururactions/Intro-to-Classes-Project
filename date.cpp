@@ -372,7 +372,7 @@ bool date::isLeapYear(int year)
 
                  return differenceobj;
     }
-
+     
 
     ostream& operator<<(ostream& out, const date& d)
     {
