@@ -367,7 +367,7 @@ bool date::isLeapYear(int year)
       while (differenceobj.month != rhs.month || differenceobj.day != rhs.day || differenceobj.year != rhs.year)
       {
            --differenceobj; 
-           difference + 1;
+           difference= difference + 1;
        }
 
                  return differenceobj;
