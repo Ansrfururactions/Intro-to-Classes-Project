@@ -23,6 +23,8 @@ public:
 
 	friend date operator-(const date&, const date&);
 	
+	int datecalc(date ,date);
+	
 	friend ostream& operator<<(ostream&, const date&);
 
 	friend istream& operator>>(istream&, date&);
@@ -39,7 +41,7 @@ public:
 	void displayWordDate1() const;//prints out the date with the month being changed to its name
 	void displayWordDate2() const;
 
-	string getWordMonth();
+	void getWordMonth(int) const;
 	int getMonth() const { return month; };//accessor for month
 	int getDay() const { return day; };//accessor for day
 	int getyear() const { return year; };//accessor for year

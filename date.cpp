@@ -4,9 +4,9 @@ using namespace std;
 
 date::date(int m, int d, int y) : month(m), day(d), year(y)
 {
+    setdate(m, d, y);
 };
 
-    
 
 bool date::isLeapYear(int year)
 {
@@ -130,115 +130,17 @@ bool date::isLeapYear(int year)
 
     void date::displayWordDate1() const
     {
-        string wordMonth;
-
-        if (month == 1)
-        {
-            wordMonth = "January";
-        }
-        else if (month == 2)
-        {
-             wordMonth = "February";
-        }
-        else if (month == 3)
-        {
-             wordMonth = "March";
-        } 
-        else if (month == 4)
-        {
-             wordMonth = "April";
-        }
-        else if (month == 5)
-        {
-             wordMonth = "May";
-        }
-        else if (month == 6)
-        {
-             wordMonth = "June";
-        }
-        else if (month == 7)
-        {
-             wordMonth = "July";
-        }
-        else if (month == 8)
-        {
-             wordMonth = "August";
-        }
-        else if (month == 9)
-        {
-             wordMonth = "September";
-        }
-        else if (month == 10)
-        {
-             wordMonth = "October";
-        }
-        else if (month == 11)
-        {
-             wordMonth = "November";
-        }
-        else
-        {
-            string wordMonth = "December";
-        }
-
-        cout << wordMonth << " " << day << ", " << year << endl;
+        getWordMonth(month);
+        cout << " " << day << ", " << year << endl;
     }
     void date::displayWordDate2() const
     {
-        string wordMonth;
-
-        if (month == 1)
-        {
-            wordMonth = "January";
-        }
-        else if (month == 2)
-        {
-            wordMonth = "February";
-        }
-        else if (month == 3)
-        {
-            wordMonth = "March";
-        }
-        else if (month == 4)
-        {
-            wordMonth = "April";
-        }
-        else if (month == 5)
-        {
-            wordMonth = "May";
-        }
-        else if (month == 6)
-        {
-            wordMonth = "June";
-        }
-        else if (month == 7)
-        {
-            wordMonth = "July";
-        }
-        else if (month == 8)
-        {
-            wordMonth = "August";
-        }
-        else if (month == 9)
-        {
-            wordMonth = "September";
-        }
-        else if (month == 10)
-        {
-            wordMonth = "October";
-        }
-        else if (month == 11)
-        {
-            wordMonth = "November";
-        }
-        else
-        {
-            string wordMonth = "December";
-        }
-        cout << day << " " << wordMonth << ", " << year << endl;
+        cout << day << " ";
+        getWordMonth(month);
+        cout << " , " << year << endl;
     }
 
-    string date::getWordMonth()
+    void date::getWordMonth(int month) const
     {
         string wordMonth;
 
@@ -288,9 +190,10 @@ bool date::isLeapYear(int year)
         }
         else
         {
-            string wordMonth = "December";
+            wordMonth = "December";
         }
-        return wordMonth;
+        
+        cout << wordMonth;
     }
 
     date& date::operator++() {      
@@ -323,7 +226,7 @@ bool date::isLeapYear(int year)
         return *this;
     }
 
-    date date::operator++(int)
+    date date::operator++(int day)
     {
         date dy = *this;
         day++;
@@ -357,26 +260,56 @@ bool date::isLeapYear(int year)
         return dy;
     }
 
+    int date::datecalc(date refdate1, date refdate2)
+    {
+        int daysbetween=0;
+        date defaultref(1, 1, refdate1.year);
+        while (defaultref.month < refdate2.month || defaultref.day < refdate2.day || defaultref.year < refdate2.year)
+        {
+            defaultref.operator++();
+            daysbetween++;
+        }
+        return daysbetween;
+    }
+
     date operator-(const date& lhs, const date& rhs)
     {   
-        date differenceobj = lhs;
-        cout <<"  differenceobj.month: " << differenceobj.month << ", differenceobj.day: " << differenceobj.day << ", differenceobj.year: " << differenceobj.year << endl;
-        cout << " rhs.month: " << rhs.month << ", rhs.day: " << rhs.day << ", rhs.year: " << rhs.year << endl;
-        int difference = 1;
+        date leftdate = lhs;
+        date rightdate = rhs;
+        int difference;
+        if (leftdate.year == rightdate.year)
+        {
+            leftdate.day = leftdate.datecalc(leftdate, leftdate);
+                rightdate.day = rightdate.datecalc(leftdate, rightdate);
+                difference = rightdate.day - leftdate.day;
+        }
+        else
+        {
+            difference = leftdate.datecalc(leftdate, leftdate);
+          
 
-      while (differenceobj.month != rhs.month || differenceobj.day != rhs.day || differenceobj.year != rhs.year)
-      {
-           --differenceobj; 
-           difference= difference + 1;
-       }
-
-                 return differenceobj;
+            for (int year = 0; year < leftdate.year - 1 - rightdate.year; year++)
+            {
+                if (leftdate.isLeapYear(rightdate.year+year))
+                {
+                    difference += 366;
+                }
+                else
+                {
+                    difference += 365;
+                }
+            }      
+            difference += 365-rightdate.datecalc(rightdate, rightdate);
+        }
+        date returnable(1, 1, difference);
+                 return returnable;
     }
      
 
     ostream& operator<<(ostream& out, const date& d)
     {
-        out << d.getMonth() << d.day << d.year << endl;
+        d.getWordMonth(d.month);
+        out << " " << d.day << ", " << d.year << endl;
         return out;
     }
 
