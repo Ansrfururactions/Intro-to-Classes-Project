@@ -30,7 +30,7 @@ public:
 
 	ParkingTicket(string carDetails, float fineAmount, string officerName, string officerBadge);
 
-	string getDetails();
+	float CalculateFine(int overtime);
 };
 
 class PoliceOfficer {

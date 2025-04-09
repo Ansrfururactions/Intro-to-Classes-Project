@@ -15,6 +15,11 @@ ParkingTicket::ParkingTicket(string carDetails, float fineAmount, string officer
 
 }
 
+float ParkingTicket::CalculateFine(int overtime)
+{
+	return 0.0f;
+}
+
 ParkedCar::ParkedCar(string make, string model, string color, string licsenceNumber, int minutesParked): make(make), model(model), color(color), licsenceNumber(licsenceNumber), minutesParked(minutesParked)
 {
 
@@ -35,7 +40,3 @@ int ParkingMeter::getPurchasedTime()
 	return 0;
 }
 
-string ParkingTicket::getDetails()
-{
-	return string();
-}
