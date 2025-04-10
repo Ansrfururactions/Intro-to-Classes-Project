@@ -8,10 +8,10 @@ public:
 	string make = "Toyota";
 	string model = "Camry";
 	string color = "red";
-	string licsenceNumber = "XYZ123";
+	string licenseNumber = "XYZ123";
 	int minutesParked = 30;
-	ParkedCar(string make, string model, string color, string licsenceNumber, int minutesParked);
-	string getDetails();
+	ParkedCar(string make, string model, string color, string licenseNumber, int minutesParked);
+	ParkedCar getDetails();
 };
 
 class ParkingMeter {
@@ -35,14 +35,16 @@ public:
 
 class PoliceOfficer {
 private:
-	ParkedCar* parkedCar;
-	ParkingMeter* parkingMeter;
+	ParkedCar* Car;
+	ParkingMeter* Meter;
 public: 
 	string name = "Jane Smith";
-	string badgenumber="1234";
+	string badgenumber = "1234";
 
-	PoliceOfficer(string name, string badgenumber);
+	PoliceOfficer(string name, string badgenumber, ParkedCar* car, ParkingMeter* meter);
 
-	ParkingTicket inspectCar(ParkedCar* parkedCar, ParkingMeter* parkingMeter);
+	ParkedCar inspectCar(ParkedCar* car);
+	ParkingMeter checkmeter(ParkingMeter* meter);
+	void compareTimes(ParkedCar* car, ParkingMeter* meter);
 };
 
