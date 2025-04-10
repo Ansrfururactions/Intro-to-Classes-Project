@@ -4,8 +4,6 @@ using namespace std;
 
 int main()
 {
-
-    int dateMonth = 1, dateDay = 1, dateYear = 1900, YN = 0;
     date dateInstdefault;
     date dateInstParam(12, 25, 2009);
     date dateInstParam2(4, 10, 2014);
