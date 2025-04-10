@@ -38,10 +38,10 @@ private:
 	ParkedCar* Car;
 	ParkingMeter* Meter;
 public: 
-	string Name = "Jane Smith";
+	string Name;
 	string badgenumber;
 
-	PoliceOfficer(string name = Name, string badgenumber = "1234", ParkedCar* car = Car->, ParkingMeter* meter);
+	PoliceOfficer(string name = "Jane Smith", string badgenumber = "1234", ParkedCar* car, ParkingMeter* meter);
 
 	ParkedCar inspectCar(ParkedCar* car);
 	ParkingMeter checkmeter(ParkingMeter* meter);
