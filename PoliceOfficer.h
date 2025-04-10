@@ -10,7 +10,7 @@ public:
 	string color = "red";
 	string licenseNumber = "XYZ123";
 	int minutesParked = 30;
-	ParkedCar(string make, string model, string color, string licenseNumber, int minutesParked);
+	ParkedCar(string make = "Toyota", string model, string color, string licenseNumber, int minutesParked);
 	ParkedCar getDetails();
 };
 
@@ -38,10 +38,10 @@ private:
 	ParkedCar* Car;
 	ParkingMeter* Meter;
 public: 
-	string name = "Jane Smith";
-	string badgenumber = "1234";
+	string Name = "Jane Smith";
+	string badgenumber;
 
-	PoliceOfficer(string name, string badgenumber, ParkedCar* car, ParkingMeter* meter);
+	PoliceOfficer(string name = Name, string badgenumber = "1234", ParkedCar* car = Car->, ParkingMeter* meter);
 
 	ParkedCar inspectCar(ParkedCar* car);
 	ParkingMeter checkmeter(ParkingMeter* meter);
