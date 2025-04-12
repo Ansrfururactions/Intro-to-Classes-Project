@@ -13,21 +13,21 @@ public:
 	date(int m = 1, int d = 1, int y = 1900);//constructor
 		 
 
-	date& operator++();
+	date& operator++();//increments day
 	
-	date& operator--();
+	date& operator--();//decrements day
 
-	date operator++(int);
+	date operator++(int);//increments day
 
-	date operator--(int);
+	date operator--(int);//decrements day
 
-	friend date operator-(const date&, const date&);
+	friend date operator-(const date&, const date&);// gets difference between two dates
 	
 	int datecalc(date ,date);
 	
-	friend ostream& operator<<(ostream&, const date&);
+	friend ostream& operator<<(ostream&, const date&);//prints a date
 
-	friend istream& operator>>(istream&, date&);
+	friend istream& operator>>(istream&, date&);//stores a date
 
 	bool isLeapYear();//uses the state of year in the constructor and determines if it is a leap year
 	bool isLeapYear(int year);// takes year as a parameter and determines if it is a leap year
