@@ -28,7 +28,7 @@ int main()
     ParkedCar* car5 = new ParkedCar("Nissan", "Rogue", "Red", "CFF447", 100);
     ParkingMeter* Meter5 = new ParkingMeter(70);
    
-    ParkedCar* car6 = new ParkedCar("Honda", "Accord", "Blue", "ABC987", 240);
+    ParkedCar* car6 = new ParkedCar("Honda", "Accord", "Blue", "ABC987", 360);
     ParkingMeter* Meter6 = new ParkingMeter(60);
     string Name4 = "Chief Micheal";
     string badge4 = "3141";
