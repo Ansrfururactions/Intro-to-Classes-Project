@@ -93,5 +93,4 @@ PoliceOfficer::~PoliceOfficer()
 {
 	delete Car;
 	delete Meter;
-	delete Ticket;
 }
