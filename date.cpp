@@ -4,7 +4,7 @@ using namespace std;
 
 date::date(int m, int d, int y) : month(m), day(d), year(y)
 {
-    setdate(m, d, y);
+   
 };
 
 
