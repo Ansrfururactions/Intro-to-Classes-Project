@@ -12,26 +12,26 @@ public:
 	int minutesParked;
 	ParkedCar(string make = "Toyota", string model = "Camry", string color = "red", string licenseNumber = "XYZ123", int minutesParked = 30);
 	ParkedCar getDetails();
-};
+};//knows values tied to the car
 
 class ParkingMeter {
 public:
 	int purchasedTime;
 	ParkingMeter(int purchasedTime = 40);
 	int getPurchasedTime();
-};
+};//knows the purchased time
 
 class ParkingTicket {
 public:
-	string CarDetails = "N/A";
-	float FineAmount = 0.0f;
-	string OfficerName= "N/A";
-	string OfficerBadge= "AAA000";
+	string CarDetails;
+	float FineAmount;
+	string OfficerName;
+	string OfficerBadge;
 
 	ParkingTicket(string carDetails, float fineAmount, string officerName, string officerBadge);
 
 	float CalculateFine(int overtime);
-};
+};//allows for the creation of a parking ticet object
 
 class PoliceOfficer {
 private:
@@ -49,5 +49,5 @@ public:
 	void issueTicket(ParkedCar* car, ParkingMeter* meter, ParkingTicket* Ticket);
 
 	~PoliceOfficer();
-};
+};// inspects the car, checks the meter, and if the minutes parked exceed the minutes purchased, it dynamically creates a parking ticket object to print its data.
 
