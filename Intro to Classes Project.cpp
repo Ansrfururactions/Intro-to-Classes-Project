@@ -10,11 +10,17 @@ int main()
     ParkingMeter* Meter1 = new ParkingMeter;
     PoliceOfficer Officer1(Name1, badge1, car1, Meter1);
 
-    string Name2 = "Jame Smith";
+    string Name2 = "Jane Smith";
     string badge2 = "1234";
     ParkedCar* car2 = new ParkedCar("Honda", "Accord", "Blue", "ABC987", 70);
     ParkingMeter* Meter2 = new ParkingMeter(60);
     PoliceOfficer Officer2(Name2, badge2, car2, Meter2);
+
+    string Name3 = "James Brown";
+    string badge3 = "4321";
+    ParkedCar* car3 = new ParkedCar("Ford", "Mustang", "Black", "LMN456", 190);
+    ParkingMeter* Meter3 = new ParkingMeter(60);
+    PoliceOfficer Officer3(Name3, badge3, car3, Meter3);
 }
 
 

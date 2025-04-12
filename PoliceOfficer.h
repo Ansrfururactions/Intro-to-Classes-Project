@@ -46,6 +46,7 @@ public:
 	ParkedCar inspectCar(ParkedCar* car);
 	ParkingMeter checkmeter(ParkingMeter* meter);
 	void compareTimes(ParkedCar* car, ParkingMeter* meter);
+	void issueTicket(ParkedCar* car, ParkingMeter* meter, ParkingTicket* Ticket);
 
 	~PoliceOfficer();
 };

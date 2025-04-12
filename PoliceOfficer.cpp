@@ -12,7 +12,7 @@ ParkedCar PoliceOfficer::inspectCar(ParkedCar* car)
 
 	car->getDetails();
 
-	cout << "make: " << car->make << ", model: " << car->model << ", color: " << car->color << ", license number: " << car->licenseNumber << ", minutes parked: " <<  car->minutesParked << endl;
+	cout<< "minutes parked: " <<  car->minutesParked << endl;
 	return *car;
 }
 
@@ -27,46 +27,42 @@ void PoliceOfficer::compareTimes(ParkedCar* car, ParkingMeter* meter)
 {
 	if (car->minutesParked > meter->purchasedTime)
 	{
-		string placeholder = "N/A";
-		float placeholder2 = 0.0f;
-	    string placeholder3 = "N/A";
-	    string placeholder4 = "AAA000";
-
-		string carDetails = "vehicle license number: " + car->licenseNumber + ", make: " + car->make + ", model: " + car->model + ", color: " + car->color;
-		int overtime = car->minutesParked - meter->purchasedTime;
+		
+    	string carDetails = "vehicle license number: " + car->licenseNumber + ", make: " + car->make + ", model: " + car->model + ", color: " + car->color;
 		float fineAmount;
-		ParkingTicket DummyTicket(placeholder, placeholder2, placeholder3, placeholder4);
-		fineAmount = DummyTicket.CalculateFine(overtime);
-		ParkingTicket Ticket(carDetails, fineAmount, Name, badgenumber);
-
+		ParkingTicket* Ticket = new ParkingTicket(carDetails, fineAmount = 25.0f, Name, badgenumber);
+		issueTicket(car, meter, Ticket);
 	}
 	else
 	{
-		cout << "car is in compliance with the law, moving on." << endl;
+		cout << "car is in compliance with the law, moving on." << endl << endl;
 	}
+}
+
+void PoliceOfficer::issueTicket(ParkedCar* car, ParkingMeter* meter, ParkingTicket* Ticket)
+{
+	int overtime = car->minutesParked - meter->purchasedTime;
+	Ticket->FineAmount += Ticket->CalculateFine(overtime);
+	cout << "***Parking Ticket***" << endl;
+	cout << "officer " << Name << ", badge number " << badgenumber << endl;
+	cout << Ticket->CarDetails << endl;
+	cout << "fine: $" << Ticket->FineAmount << endl << endl;
+	delete Ticket;
+
 }
 
 
 ParkingTicket::ParkingTicket(string carDetails, float fineAmount, string officerName, string officerBadge): CarDetails(carDetails), FineAmount(fineAmount), OfficerName(officerName), OfficerBadge(officerBadge)
 {
-	if (carDetails == "N/A" && fineAmount == 0.0f && officerName == "N/A" && officerBadge == "AAA000")
-	{
-		cout <<"";
-	}
-	else
-	{
-		cout << "***Parking Ticket***" << endl;
-		cout << "officer " << officerName << ", badge number " << officerBadge << endl;
-		cout << carDetails << endl;
-	}
 }
 
 float ParkingTicket::CalculateFine(int overtime)
 {
-	float fine = 25.0f;
+	float fine = 0.0f;
+	overtime -= 60;
 	while (overtime > 0)
 	{
-		overtime - 60;
+		overtime -= 60;
 		fine += 10.00f;
 		
 	}
@@ -97,4 +93,5 @@ PoliceOfficer::~PoliceOfficer()
 {
 	delete Car;
 	delete Meter;
+	delete Ticket;
 }
