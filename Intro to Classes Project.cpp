@@ -23,7 +23,7 @@ int main()
     dateInstdefault.displaydate();
     cout << endl;
 
-    cout << "testing constructor with parameters (12/25/2009): ";
+    cout << "testing second date format (12/25/2009): ";
     dateInstParam.displayWordDate1();
     cout << endl;
 
